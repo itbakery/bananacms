@@ -1,0 +1,45 @@
+<%= form_for([:admin, @post]) do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+      <%= f.label :title %><br>
+    <%= f.text_field :title %>
+    </div>
+  <div class="field">
+      <%= f.label :slug %><br>
+    <%= f.text_field :slug %>
+    </div>
+  <div class="field">
+      <%= f.label :content %><br>
+    <%= f.text_area :content %>
+    </div>
+  <div class="field">
+      <%= f.label :published %><br>
+    <%= f.check_box :published %>
+    </div>
+  <div class="field">
+      <%= f.label :visibility %><br>
+    <%= f.check_box :visibility %>
+    </div>
+  <div class="field">
+      <%= f.label :published_on %><br>
+    <%= f.date_select :published_on %>
+    </div>
+  <div class="field">
+      <%= f.label :unpublished_on %><br>
+    <%= f.date_select :unpublished_on %>
+    </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
